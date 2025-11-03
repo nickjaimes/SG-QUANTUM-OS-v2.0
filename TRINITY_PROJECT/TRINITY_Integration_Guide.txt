@@ -1,0 +1,15 @@
+TRINITY AI INTEGRATION GUIDE
+
+GETTING STARTED:
+1. Install SDK: npm install trinity-sdk
+2. Get API key from trinity.ai/console
+3. Initialize client with your API key
+
+BASIC USAGE:
+import { TrinityClient } from 'trinity-sdk';
+const client = new TrinityClient('your-api-key');
+
+SUPPORT:
+- Docs: docs.trinity.ai
+- Email: support@trinity.ai
+- Status: status.trinity.ai
