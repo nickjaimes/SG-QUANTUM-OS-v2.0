@@ -1,32 +1,21 @@
-name: Deploy Docs
+site_name: SG QUANTUM OS
+site_description: Hybrid-Intelligent Operating System | Safeway Guardian
+site_author: Nicolas E. Santiago
 
-on:
-  push:
-    branches: [ "main" ]
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v4
-        with:
-          python-version: "3.10"
-      - run: pip install mkdocs mkdocs-material
-      - run: mkdocs build
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./site
-
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-    permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - search.highlight
+    - search.share
+    - content.code.copy
+nav:
+  - Overview: index.md
+  - Architecture:
+      - Trinity Core: ARCHITECTURE.md
+      - Modules: MODULES.md
+      - Security Model: SECURITY_MODEL.md
+  - Terminal: TERMINAL_GUIDE.md
+  - Installation: INSTALL.md
+  - Changelog: ../CHANGELOG.md
